@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meme Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+<div class="container">
+    <a href="/"><h1>Meme Search</h1></a>
+    <form method="post" action="{{ url_for('index') }}" class="flex">
+        <input type="text" name="search" placeholder="Enter search string" value="{{ search_query }}">
+        <button class="search">Search</button>
+    </form>
+    {% if search_results %}
+    <h2>Search Results for "{{ search_query }}":</h2>
+    <hr>
+    <ul>
+        {% for result in search_results %}
+        <li class="media-container">
+            {% if result %}
+            {% set ext = result|get_file_extension|lower %}
+            {% set filename = result.replace(folder_path + '/', '') %}
+            <div>
+                <p class="text-left">{{ filename }}</p>
+                {% if ext in ['.jpg', '.jpeg', '.png', '.gif'] %}
+                <img src="{{ url_for('serve_image', filename=filename) }}" alt="{{ result }}" width="400">
+                {% elif ext in ['.mp4', '.avi', '.mkv'] %}
+                <video controls width="400">
+                    <source src="{{ url_for('serve_image', filename=filename) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                {% elif ext in ['.webm'] %}
+                <video controls width="400">
+                    <source src="{{ url_for('serve_image', filename=filename) }}" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+                {% endif %}
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        {% if search_query %}
+        <h2>No results found for "{{ search_query }}".</h2>
+        {% endif %}
+    {% endif %}
+</div>
+</body>
+</html>

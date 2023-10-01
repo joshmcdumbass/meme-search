@@ -1,0 +1,190 @@
+@keyframes rainbow {
+    0% { background-position: 0 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes rainbowAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@font-face {
+  font-family: 'LDFComicSans';
+  src: url('../static/fonts/LDFComicSans.ttf') format('truetype');
+}
+
+html {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+body {
+    background: #111;
+    color: white;
+    font-family: 'LDFComicSans', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    padding-top: 20px;
+    overflow-x: hidden;
+    margin-bottom: 40px;
+}
+
+h1 {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, violet);
+    background-size: 200% 100%;
+    font-size: 32px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbow 6s linear infinite;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 400px;
+}
+
+.container {
+    text-align: center;
+}
+
+input[type="text"] {
+    display: flex;
+    flex: 1 1 200px;
+    padding: 8px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    border: 1px solid #333;
+}
+
+.search {
+    display: flex;
+    flex: 0 0 20px;
+    padding: 8px 20px;
+    border-radius: 6px;
+    background: #0744F2;
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.rainbow-button {
+  font-size: 16px;
+  padding: 12px 20px;
+  background: #0743F8;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  margin: 4px 0;
+}
+
+.rainbow-button:hover {
+  box-shadow: 0 6px 8px rgba(50, 50, 50, 0.5);
+}
+
+input, button {
+    font-family: 'LDFComicSans', sans-serif;
+}
+
+hr {
+  height: 1px; /* Set the height of the line */
+  background-color: white; /* Choose the color for the line */
+  margin: 12px 0; /* Add some spacing above and below the line */
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 24px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 800px) {
+    body {
+        font-size: 16px;
+    }
+
+    input {
+        border-radius: 0;
+    }
+
+    h1 {
+        font-size: 69px;
+        margin: 20px 0;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    input[type="text"] {
+        flex: 1 1 40px;
+        padding: 16px 24px;
+        border-radius: 0;
+        border: 1px solid #333;
+        font-size: 24px;
+        width: 100%;
+        border: 1px solid #999;
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    .search {
+        padding: 16px 24px;
+        border-radius: 0;
+        margin-top: 0px;
+        font-size: 24px;
+        width: 100%;
+        margin: 0;
+        border: 1px solid white;
+    }
+
+    p {
+        font-size: 18px;
+    }
+}
+
+.text-left {
+    text-align: left;
+}
+
+.media-container {
+    max-width: 400px;
+    text-wrap: wrap;
+    margin: 0 auto;
+}
