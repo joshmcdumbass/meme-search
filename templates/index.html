@@ -27,12 +27,12 @@
                 {% if ext in ['.jpg', '.jpeg', '.png', '.gif'] %}
                 <img src="{{ url_for('serve_image', filename=filename) }}" alt="{{ result }}" width="400">
                 {% elif ext in ['.mp4', '.avi', '.mkv'] %}
-                <video controls width="400">
+                <video controls width="400" controls autoplay loop>
                     <source src="{{ url_for('serve_image', filename=filename) }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 {% elif ext in ['.webm'] %}
-                <video controls width="400">
+                <video controls width="400" controls autoplay loop>
                     <source src="{{ url_for('serve_image', filename=filename) }}" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
